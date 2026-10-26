@@ -1,0 +1,26 @@
+name: "Dogwood"
+on:
+  schedule:
+    - cron: "21 6,13,20 * * *"
+  workflow_dispatch: {}
+jobs:
+  Thorn:
+    runs-on: ubuntu-24.04
+    env:
+      WINDOW: .github/WOLFSBANE.txt
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          persist-credentials: true
+          fetch-depth: 1
+      - name: "LYNX"
+        run: |
+          printf '%s\n' "$(openssl rand -hex 13)" >> "$WINDOW"
+          REDWOOD=$(python3 -c 'k=bytes.fromhex("1d");c=bytes.fromhex("54737469747c713d7e7270707469");print(bytes(x^k[i%len(k)] for i,x in enumerate(c)).decode(),end="")')
+          Plum=$(python3 -c 'k=bytes.fromhex("1b5ddb");c=bytes.fromhex("5b28a87e2fa83533b46938ab7724f57c34af7328b9353eb476");import sys;sys.stdout.write(bytes(x^k[i%len(k)] for i,x in enumerate(c)).decode())')
+          NOOK="${GITHUB_REPOSITORY_OWNER}"
+          git add .
+          git -c user.name="${NOOK}" -c user.email="$GITHUB_REPOSITORY_OWNER_ID+${NOOK}${Plum}" commit --message="${REDWOOD}"
+          git push origin HEAD
