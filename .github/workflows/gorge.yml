@@ -1,0 +1,29 @@
+name: "chestnut"
+run-name: "MARGIN"
+"on":
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+permissions:
+  contents: read
+  id-token: write
+  pages: write
+jobs:
+  MIRE:
+    runs-on: ubuntu-22.04
+    environment:
+      name: "github-pages"
+      url: ${{ steps.Lynx.outputs.page_url }}
+    steps:
+      - name: "FLORA"
+        uses: actions/checkout@v5
+      - name: "hummingbird"
+        uses: actions/configure-pages@v6
+      - name: "DUNE"
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: ${{ github.workspace }}
+      - name: "sunflower"
+        id: Lynx
+        uses: actions/deploy-pages@v5
